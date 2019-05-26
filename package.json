@@ -1,0 +1,24 @@
+{
+  "name": "date-filtersjs",
+  "version": "1.0.0",
+  "description": "A Javascript library to help developers in filtering according to specific date range",
+  "main": "filter/filter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PeterHdd/date-filtersjs.git"
+  },
+  "keywords": [
+    "filter",
+    "javascript",
+    "date"
+  ],
+  "author": "Peter Haddad",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PeterHdd/date-filtersjs/issues"
+  },
+  "homepage": "https://github.com/PeterHdd/date-filtersjs#readme"
+}
