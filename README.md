@@ -1,9 +1,19 @@
 # DATE-FILTERSJS - Combination of Filter and Date
 
+![Release](https://img.shields.io/github/release/peterhdd/date-filtersjs.svg)
+![Release Date](https://img.shields.io/github/release-date/peterhdd/date-filtersjs.svg)
+![Last Commit](https://img.shields.io/github/last-commit/peterhdd/date-filtersjs.svg)
+![License](https://img.shields.io/github/license/peterhdd/date-filtersjs.svg)
+
 ## Introduction
 
 This is a javascript library, the main purpose of this library is to easily apply filter on specific date range and apply filter on any attribute.
 
+## Installation
+
+```
+npm i date-filtersjs
+```
 ## Usage
 
 ### Example User object
