@@ -1,8 +1,34 @@
 # DATE-FILTERSJS - Combination of Filter and Date
 
+![Release](https://img.shields.io/github/release/peterhdd/date-filtersjs.svg)
+![Release Date](https://img.shields.io/github/release-date/peterhdd/date-filtersjs.svg)
+![Last Commit](https://img.shields.io/github/last-commit/peterhdd/date-filtersjs.svg)
+![License](https://img.shields.io/github/license/peterhdd/date-filtersjs.svg)
+
 ## Introduction
 
 This is a javascript library, the main purpose of this library is to easily apply filter on specific date range and apply filter on any attribute.
+
+## Installation
+
+To build your project using Webpack or similar builders, install packages from NPM:
+
+```
+npm i date-filtersjs
+```
+import as follows:
+```js
+import { Filter } from 'date-filtersjs/filter/filter';
+import { Dates }  from 'date-filtersjs/dates/dates';
+```
+
+Or if you are not using a bundler, you can do the following:
+```js
+<script type="module">
+import { Filter } from 'https://cdn.jsdelivr.net/npm/date-filtersjs@1.0.0/filter/filter.min.js'
+import { Dates }  from 'https://cdn.jsdelivr.net/npm/date-filtersjs@1.0.0/dates/dates.js';
+</script>
+```
 
 ## Usage
 
