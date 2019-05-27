@@ -1,6 +1,6 @@
 
 
-enum DateFormat
+export enum DateFormat
 {
     forwardSlashMMDDYYYY   = "MM/DD/YYYY",
     dashMMDDYYYY           = "MM-DD-YYYY",
