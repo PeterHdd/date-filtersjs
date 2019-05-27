@@ -22,14 +22,6 @@ import { Filter } from 'date-filtersjs/filter/filter';
 import { Dates }  from 'date-filtersjs/dates/dates';
 ```
 
-Or if you are not using a bundler, you can do the following:
-```js
-<script type="module">
-import { Filter } from 'https://cdn.jsdelivr.net/npm/date-filtersjs@1.0.0/filter/filter.min.js'
-import { Dates }  from 'https://cdn.jsdelivr.net/npm/date-filtersjs@1.0.0/dates/dates.js';
-</script>
-```
-
 ## Usage
 
 ### Example User object
