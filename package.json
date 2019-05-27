@@ -3,6 +3,7 @@
   "version": "1.1.2",
   "description": "A Javascript library to help developers in filtering according to specific date range",
   "main": "filter/filter",
+  "jsdelivr" : "filter/filter.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
