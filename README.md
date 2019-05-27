@@ -71,22 +71,22 @@ let filter = new Filter(obj);                                            // init
 filter.filterBy("name","userz").result();                                // Filter by an attribute
 filter.where("name","==","userz").where("age","==","21").result();       // compound filter (AND), valid operators that can be used (==, !=, <= , >=)
 
-filter.filterByToday("date").result();                                    // filters the data by today
-filter.filterByYesterday("date").result();                                // filters the data by yesterday
-filter.filterByCurrentWeek("date").result();                              // filters the data by first and last day of the week
-filter.filterByCurrentMonth("date").result();                             // filters the data by current month
-filter.filterByNextWeek("date").result();                                 // filters the data by next week
-filter.filterByNextMonth("date").result();                                // filters the data by next month
-filter.filterByLastWeek("date").result();                                 // filters the data by last week
+filter.filterByToday("date").result();                                    // filters the date by today
+filter.filterByYesterday("date").result();                                // filters the date by yesterday
+filter.filterByCurrentWeek("date").result();                              // filters the date by first and last day of the week
+filter.filterByCurrentMonth("date").result();                             // filters the date by current month
+filter.filterByNextWeek("date").result();                                 // filters the date by next week
+filter.filterByNextMonth("date").result();                                // filters the date by next month
+filter.filterByLastWeek("date").result();                                 // filters the date by last week
 
-filter.filterByNextThirtyDays("date").result();                           // filters the data by next thirty days
-filter.filterByLastSevenDays("date").result();                            // filters the data by last seven days
-filter.filterByLastThirtyDays("date").result();                           // filters the data by last thirty days
-filter.filterByLastSixtyDays("date").result();                            // filters the data by last sixty days 
+filter.filterByNextThirtyDays("date").result();                           // filters the date by next thirty days
+filter.filterByLastSevenDays("date").result();                            // filters the date by last seven days
+filter.filterByLastThirtyDays("date").result();                           // filters the date by last thirty days
+filter.filterByLastSixtyDays("date").result();                            // filters the date by last sixty days 
 
-filter.filterByLastNinetyDays("date").result();                           // filters the data by last ninety days
-filter.filterByMonthToDate("date").result();                              // filters the data by month to date
-filter.filterByLastMonth("date").result();                                // filters the data by last month
+filter.filterByLastNinetyDays("date").result();                           // filters the date by last ninety days
+filter.filterByMonthToDate("date").result();                              // filters the date by month to date
+filter.filterByLastMonth("date").result();                                // filters the date by last month
 ```
 **Note:** All of the above will return the filtered array
 
