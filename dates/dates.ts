@@ -1,8 +1,22 @@
+
+
+enum DateFormat
+{
+    forwardSlashMMDDYYYY   = "MM/DD/YYYY",
+    dashMMDDYYYY           = "MM-DD-YYYY",
+    forwardSlashDDMMYYYY   = "DD/MM/YYYY"
+}
+
+
 export class Dates
 {
-    dateSymbol;
-    dateFormat;
-    date;
+    private dateSymbol;
+    private dateFormat;
+    private date;
+    private day  : any;
+    private month: any;
+    private year : any;
+    private formatDates: any;
 
     constructor()
     {
@@ -15,7 +29,7 @@ export class Dates
     /**
      * Set the format of your dates
      */
-    setFormat(dateFormat)
+    setFormat(dateFormat : DateFormat)
     {
         switch (dateFormat) 
         {
@@ -68,8 +82,10 @@ export class Dates
      */
     currentWeek()
     {
-        let first        = this.day - this.date.getDay();
-        let last         = first + 6;
+        let  first : number;
+        let last   : any;
+         first          = this.day - this.date.getDay();
+         last         = first + 6;
         let daysinMonth  = new Date(this.year, this.month, 0).getDate();
         if(last > daysinMonth)
         {
@@ -101,15 +117,17 @@ export class Dates
      */
     nextMonth()
     {
+        let  first : any;
+        let last   : any;
         let nextMonth    = this.date.getMonth()+2;
         let year         = this.date.getFullYear();
-        let last         = new Date(year, nextMonth, 0).getDate();
+        last         = new Date(year, nextMonth, 0).getDate();
         if(nextMonth == 12)
         {
             year       = this.date.getFullYear() + 1;
              last      = new Date(year, nextMonth, 0).getDate();
         }
-        let first        = {date  : '1',  month : nextMonth, year : year}
+        first            = {date  : '1',  month : nextMonth, year : year}
         last             = {date  : last, month : nextMonth, year : year}
         let dateResult   = {first : first, last : last}
         let format       = this.resultDateFormat(dateResult);
@@ -121,8 +139,10 @@ export class Dates
      */
     nextWeek()
     {
-        let first        = this.day - this.date.getDay() + 7;
-        let last         = first + 6;
+        let  first : any;
+        let last   : any;
+         first        = this.day - this.date.getDay() + 7;
+         last         = first + 6;
         let daysinMonth  = new Date(this.year, this.month, 0).getDate();
          if(first > daysinMonth && last > daysinMonth)
         {
@@ -151,6 +171,10 @@ export class Dates
      */
     lastWeek() 
     {
+        let  first : any;
+        let last   : any;
+        let lastMonth : any;
+        let dateResult : any;
         if(this.day <= 7)
         {
             lastMonth                = this.date.getMonth();
@@ -160,35 +184,35 @@ export class Dates
             let daysLeft             = daysinMonth - daysPassed;
             let numOfDaysInWeek      = 7 - daysLeft;
             let daysInPreviousMonth  = new Date(this.year, lastMonth, 0).getDate();
-            var first                = daysInPreviousMonth - numOfDaysInWeek +1;
+             first                = daysInPreviousMonth - numOfDaysInWeek +1;
             var lastDays             = first + 6;
             first            = {date : first, month : lastMonth}
-            var dateResult   = {first : first, last : lastDays}
+             dateResult   = {first : first, last : lastDays}
             if(lastDays > daysinMonth)
             {
                 lastDays = lastDays - daysinMonth;
                 lastDays = {date : lastDays, month : this.date.getMonth()+2}
-                var dateResult   = {first : first, last : lastDays}
+                 dateResult   = {first : first, last : lastDays}
             }
             else
             {
-                var dateResult   = {first : first, last : lastDays}
+                 dateResult   = {first : first, last : lastDays}
             }
         }
         else
         {
             let first        = this.day - this.date.getDay() -7;
-            let last         = first + 6;
+             last         = first + 6;
             let daysinMonth  = new Date(this.year, this.month, 0).getDate();
             if(last > daysinMonth)
             {
                 last = last - daysinMonth;
                 last = {date : last, month : this.date.getMonth()+2}
-                var dateResult   = {first : first, last : last}
+                 dateResult   = {first : first, last : last}
             }
             else
             {
-                var dateResult   = {first : first, last : last}
+                 dateResult   = {first : first, last : last}
             }
         }
         let format      = this.resultDateFormat(dateResult);
@@ -273,7 +297,9 @@ export class Dates
      */
     lastMonth()
     {
-        let first = 1;
+        let first : any;
+        let last  : any;
+         first = 1;
         let previousMonth        = this.date.getMonth();
         let year                 = this.date.getFullYear();
         let daysInPreviousMonth  = new Date(year, this.date.getMonth(), 0).getDate();
@@ -282,7 +308,7 @@ export class Dates
             year                 = this.date.getFullYear() -1;
             daysInPreviousMonth  = new Date(year, this.date.getMonth(), 0).getDate();
         }
-        let last  = daysInPreviousMonth;
+         last  = daysInPreviousMonth;
         last      = {date : last, month : this.date.getMonth(), year : year }
         first     = {date : first, month : this.date.getMonth(), year : year }
         let dateResult   = {first : first, last : last}
@@ -295,7 +321,7 @@ export class Dates
      */
     incrementBy(num)
     {
-        if(typeof num != 'number');
+        if(typeof num != 'number')
         {
             num = parseInt(num);
         }
@@ -311,7 +337,7 @@ export class Dates
      */
     decrementBy(num)
     {
-        if(typeof num != 'number');
+        if(typeof num != 'number')
         {
             num = parseInt(num);
         }
@@ -323,7 +349,7 @@ export class Dates
     }
 
 
-    resultDateFormat(dateResult)
+    private resultDateFormat(dateResult)
     {
         let firstDay  = dateResult.first;
         let month = this.date.getMonth()+1;
@@ -378,7 +404,7 @@ export class Dates
          return typeof lastDate != "undefined" ? {first: firstDate, last : lastDate} : {date : firstDate} ;
     }
 
-    dateFormatting(date)
+private dateFormatting(date)
     {
         if(typeof this.dateSymbol == "undefined")
         {
@@ -399,7 +425,7 @@ export class Dates
         return this.formatDates;
     }
 
-    formatMonthAndDay(result)
+private formatMonthAndDay(result)
     {
         if(typeof this.dateSymbol == "undefined")
         {
@@ -441,7 +467,7 @@ export class Dates
         return this.formatDates;
     }
 
-    retrieveDates(num,operator)
+private retrieveDates(num,operator)
     {
         let last      = this.day;
         let date      = new Date();
