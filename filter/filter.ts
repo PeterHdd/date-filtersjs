@@ -1,8 +1,11 @@
-import { Dates } from '../dates/dates.js';
+import { Dates } from '../dates/dates';
 
 export class Filter
 {
-    dateResult;
+   private dateResult;
+   private userArrOfObj : any;
+   private date         : Dates;
+   private finalResult  : any;
 
     /**
      * add your object
@@ -46,29 +49,29 @@ export class Filter
         return this.finalResult;
     }
 
-    compoundFilter(attribute,operator,value,obj)
-    {
-        if(operator == "==")
+private compoundFilter(attribute,operator,value,obj)
         {
-            this.finalResult = obj.filter(filterByAtt => filterByAtt[attribute] == value);
+            if(operator == "==")
+            {
+                this.finalResult = obj.filter(filterByAtt => filterByAtt[attribute] == value);
+            }
+            else if(operator == "!=")
+            {
+                this.finalResult = obj.filter(filterByAtt => filterByAtt[attribute] != value);
+            }
+            else if(operator == "<=")
+            {
+                this.finalResult = obj.filter(filterByAtt => filterByAtt[attribute] <= value);
+            }
+            else if(operator == ">=")
+            {
+                this.finalResult = obj.filter(filterByAtt => filterByAtt[attribute] >= value);
+            }
+            else
+            {
+                throw new Error("Invalid operator used, please use the following operators: ==, >=, <=, !=");
+            }
         }
-        else if(operator == "!=")
-        {
-            this.finalResult = obj.filter(filterByAtt => filterByAtt[attribute] != value);
-        }
-        else if(operator == "<=")
-        {
-            this.finalResult = obj.filter(filterByAtt => filterByAtt[attribute] <= value);
-        }
-        else if(operator == ">=")
-        {
-            this.finalResult = obj.filter(filterByAtt => filterByAtt[attribute] >= value);
-        }
-        else
-        {
-            throw new Error("Invalid operator used, please use the following operators: ==, >=, <=, !=");
-        }
-    }
 
     /**
      * set date format
@@ -184,38 +187,38 @@ export class Filter
         return this;
     }
 
-    dateFilter(att, date)
-    {
-        if(typeof this.finalResult === "undefined")
-        {
-            this.finalResult = this.userArrOfObj.filter(filterByDate => new Date(filterByDate[att]).toDateString() == new Date(date).toDateString());
-        }
-        else
-        {
-            this.finalResult = this.finalResult.filter(filterByDate => new Date(filterByDate[att]).toDateString() == new Date(date).toDateString());
-        }
-    }
-
-
-    filterDates(att, date)
-    {
-
-        if(typeof date.last != "undefined")
+private dateFilter(att, date)
         {
             if(typeof this.finalResult === "undefined")
             {
-                this.finalResult = this.userArrOfObj.filter(filterByDate => new Date(filterByDate[att]) >= new Date(date.first) && new Date(filterByDate[att]) <= new Date(date.last));
+                this.finalResult = this.userArrOfObj.filter(filterByDate => new Date(filterByDate[att]).toDateString() == new Date(date).toDateString());
             }
             else
             {
-                this.finalResult = this.finalResult.filter(filterByDate => new Date(filterByDate[att]) >= new Date(date.first) && new Date(filterByDate[att]) <= new Date(date.last));
+                this.finalResult = this.finalResult.filter(filterByDate => new Date(filterByDate[att]).toDateString() == new Date(date).toDateString());
             }
         }
-        else
+
+
+private filterDates(att, date)
         {
-            this.dateFilter(att, date);
+
+            if(typeof date.last != "undefined")
+            {
+                if(typeof this.finalResult === "undefined")
+                {
+                    this.finalResult = this.userArrOfObj.filter(filterByDate => new Date(filterByDate[att]) >= new Date(date.first) && new Date(filterByDate[att]) <= new Date(date.last));
+                }
+                else
+                {
+                    this.finalResult = this.finalResult.filter(filterByDate => new Date(filterByDate[att]) >= new Date(date.first) && new Date(filterByDate[att]) <= new Date(date.last));
+                }
+            }
+            else
+            {
+                this.dateFilter(att, date);
+            }
         }
-    }
 
     /**
      * returns user array of object
