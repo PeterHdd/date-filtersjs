@@ -1,9 +1,9 @@
 {
   "name": "date-filtersjs",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "A Javascript library to help developers in filtering according to specific date range",
   "main": "filter/filter",
-  "jsdelivr" : "filter/filter.ts",
+  "jsdelivr" : "filter/filter.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
