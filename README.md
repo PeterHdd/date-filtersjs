@@ -18,8 +18,8 @@ npm i date-filtersjs
 ```
 import as follows:
 ```js
-import { Filter } from 'date-filtersjs/filter/filter';
-import { Dates }  from 'date-filtersjs/dates/dates';
+import { Filter } from 'date-filtersjs/src/filter';
+import { Dates }  from 'date-filtersjs/src/dates';
 ```
 
 ## Usage
