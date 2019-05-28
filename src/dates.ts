@@ -10,9 +10,9 @@ export enum DateFormat
 
 export class Dates
 {
-    private dateSymbol;
-    private dateFormat;
-    private date;
+    private dateSymbol : any;
+    private dateFormat : any;
+    private date       : any;
     private day  : any;
     private month: any;
     private year : any;
@@ -319,7 +319,7 @@ export class Dates
     /**
      * increment day by specific days
      */
-    incrementBy(num)
+    incrementBy(num : any)
     {
         if(typeof num != 'number')
         {
@@ -335,7 +335,7 @@ export class Dates
     /**
      * decrement day by specific days
      */
-    decrementBy(num)
+    decrementBy(num : any)
     {
         if(typeof num != 'number')
         {
@@ -349,7 +349,7 @@ export class Dates
     }
 
 
-    private resultDateFormat(dateResult)
+    private resultDateFormat(dateResult : any)
     {
         let firstDay  = dateResult.first;
         let month = this.date.getMonth()+1;
@@ -404,7 +404,7 @@ export class Dates
          return typeof lastDate != "undefined" ? {first: firstDate, last : lastDate} : {date : firstDate} ;
     }
 
-private dateFormatting(date)
+private dateFormatting(date : any)
     {
         if(typeof this.dateSymbol == "undefined")
         {
@@ -425,7 +425,7 @@ private dateFormatting(date)
         return this.formatDates;
     }
 
-private formatMonthAndDay(result)
+private formatMonthAndDay(result : any)
     {
         if(typeof this.dateSymbol == "undefined")
         {
@@ -467,7 +467,7 @@ private formatMonthAndDay(result)
         return this.formatDates;
     }
 
-private retrieveDates(num,operator)
+private retrieveDates(num : any,operator : any)
     {
         let last      = this.day;
         let date      = new Date();

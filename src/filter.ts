@@ -1,8 +1,8 @@
-import { Dates } from '../dates/dates';
+import { Dates } from './dates';
 
 export class Filter
 {
-   private dateResult;
+   private dateResult   : any;
    private userArrOfObj : any;
    private date         : Dates;
    private finalResult  : any;
@@ -10,7 +10,7 @@ export class Filter
     /**
      * add your object
      */
-    constructor(arrOfObj)
+    constructor(arrOfObj : any)
     {
         this.userArrOfObj = arrOfObj;
         this.date         = new Dates();
@@ -19,16 +19,16 @@ export class Filter
     /**
      * filter by attribute and value
      */
-    filterBy(attribute,value)
+    filterBy(attribute : any,value : any)
     {
-        this.finalResult = this.userArrOfObj.filter(filterByAtt => filterByAtt[attribute] == value);
+        this.finalResult = this.userArrOfObj.filter((filterByAtt : any) => filterByAtt[attribute] == value);
         return this;
     }
 
     /**
      * compound filters more info in readme
      */
-    where(attribute,operator,value)
+    where(attribute : any,operator : any,value : any)
     {
         if(typeof this.finalResult === "undefined")
         {
@@ -49,23 +49,23 @@ export class Filter
         return this.finalResult;
     }
 
-private compoundFilter(attribute,operator,value,obj)
+private compoundFilter(attribute : any,operator : any,value : any,obj : any)
         {
             if(operator == "==")
             {
-                this.finalResult = obj.filter(filterByAtt => filterByAtt[attribute] == value);
+                this.finalResult = obj.filter((filterByAtt : any) => filterByAtt[attribute] == value);
             }
             else if(operator == "!=")
             {
-                this.finalResult = obj.filter(filterByAtt => filterByAtt[attribute] != value);
+                this.finalResult = obj.filter((filterByAtt : any) => filterByAtt[attribute] != value);
             }
             else if(operator == "<=")
             {
-                this.finalResult = obj.filter(filterByAtt => filterByAtt[attribute] <= value);
+                this.finalResult = obj.filter((filterByAtt : any) => filterByAtt[attribute] <= value);
             }
             else if(operator == ">=")
             {
-                this.finalResult = obj.filter(filterByAtt => filterByAtt[attribute] >= value);
+                this.finalResult = obj.filter((filterByAtt :any) => filterByAtt[attribute] >= value);
             }
             else
             {
@@ -76,7 +76,7 @@ private compoundFilter(attribute,operator,value,obj)
     /**
      * set date format
      */
-    setDateFormat(format)
+    setDateFormat(format : any)
     {
         this.date.setFormat(format);
     }
@@ -89,129 +89,129 @@ private compoundFilter(attribute,operator,value,obj)
         return this.date.getFormat();
     }
 
-    filterByToday(attribute)
+    filterByToday(attribute : any)
     {
         this.dateResult = this.date.today();
         this.filterDates(attribute, this.dateResult.date);
         return this;
     }
 
-    filterByYesterday(attribute)
+    filterByYesterday(attribute : any)
     {
         this.dateResult = this.date.yesterday();
         this.filterDates(attribute, this.dateResult.date);
         return this;
     }
 
-    filterByCurrentWeek(attribute)
+    filterByCurrentWeek(attribute : any)
     {
         this.dateResult = this.date.currentWeek();
         this.filterDates(attribute, this.dateResult);
         return this;
     }
 
-    filterByCurrentMonth(attribute)
+    filterByCurrentMonth(attribute : any)
     {
         this.dateResult = this.date.currentMonth();
         this.filterDates(attribute, this.dateResult);
         return this;
     }
 
-    filterByNextWeek(attribute)
+    filterByNextWeek(attribute : any)
     {
         this.dateResult = this.date.nextWeek();
         this.filterDates(attribute, this.dateResult);
         return this;
     }
 
-    filterByNextMonth(attribute)
+    filterByNextMonth(attribute : any)
     {
         this.dateResult = this.date.nextWeek();
         this.filterDates(attribute, this.dateResult);
         return this;
     }
 
-    filterByLastWeek(attribute)
+    filterByLastWeek(attribute : any)
     {
         this.dateResult = this.date.lastWeek();
         this.filterDates(attribute, this.dateResult);
         return this;
     }
 
-    filterByNextThirtyDays(attribute)
+    filterByNextThirtyDays(attribute : any)
     {
         this.dateResult = this.date.nextThirtyDays();
         this.filterDates(attribute, this.dateResult);
         return this;
     }
 
-    filterByLastSevenDays(attribute)
+    filterByLastSevenDays(attribute : any)
     {
         this.dateResult = this.date.lastSevenDays();
         this.filterDates(attribute, this.dateResult);
         return this;
     }
 
-    filterByLastThirtyDays(attribute)
+    filterByLastThirtyDays(attribute : any)
     {
         this.dateResult = this.date.lastThirtyDays();
         this.filterDates(attribute, this.dateResult);
         return this;
     }
 
-    filterByLastSixtyDays(attribute)
+    filterByLastSixtyDays(attribute : any)
     {
         this.dateResult = this.date.lastSixtyDays();
         this.filterDates(attribute, this.dateResult);
         return this;
     }
 
-    filterByLastNinetyDays(attribute)
+    filterByLastNinetyDays(attribute : any)
     {
         this.dateResult = this.date.lastNinetyDays();
         this.filterDates(attribute, this.dateResult);
         return this;
     }
 
-    filterByMonthToDate(attribute)
+    filterByMonthToDate(attribute : any)
     {
         this.dateResult = this.date.monthToDate();
         this.filterDates(attribute, this.dateResult);
         return this;
     }
 
-    filterByLastMonth(attribute)
+    filterByLastMonth(attribute : any)
     {
         this.dateResult = this.date.lastMonth();
         this.filterDates(attribute, this.dateResult);
         return this;
     }
 
-private dateFilter(att, date)
+private dateFilter(att : any, date : any)
         {
             if(typeof this.finalResult === "undefined")
             {
-                this.finalResult = this.userArrOfObj.filter(filterByDate => new Date(filterByDate[att]).toDateString() == new Date(date).toDateString());
+                this.finalResult = this.userArrOfObj.filter((filterByDate : any) => new Date(filterByDate[att]).toDateString() == new Date(date).toDateString());
             }
             else
             {
-                this.finalResult = this.finalResult.filter(filterByDate => new Date(filterByDate[att]).toDateString() == new Date(date).toDateString());
+                this.finalResult = this.finalResult.filter((filterByDate : any)  => new Date(filterByDate[att]).toDateString() == new Date(date).toDateString());
             }
         }
 
 
-private filterDates(att, date)
+private filterDates(att : any, date : any)
         {
 
             if(typeof date.last != "undefined")
             {
                 if(typeof this.finalResult === "undefined")
                 {
-                    this.finalResult = this.userArrOfObj.filter(filterByDate => new Date(filterByDate[att]) >= new Date(date.first) && new Date(filterByDate[att]) <= new Date(date.last));
+                    this.finalResult = this.userArrOfObj.filter((filterByDate : any) => new Date(filterByDate[att]) >= new Date(date.first) && new Date(filterByDate[att]) <= new Date(date.last));
                 }
                 else
                 {
-                    this.finalResult = this.finalResult.filter(filterByDate => new Date(filterByDate[att]) >= new Date(date.first) && new Date(filterByDate[att]) <= new Date(date.last));
+                    this.finalResult = this.finalResult.filter((filterByDate : any) => new Date(filterByDate[att]) >= new Date(date.first) && new Date(filterByDate[att]) <= new Date(date.last));
                 }
             }
             else

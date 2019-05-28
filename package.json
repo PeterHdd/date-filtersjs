@@ -1,8 +1,9 @@
 {
   "name": "date-filtersjs",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "A Javascript library to help developers in filtering according to specific date range",
   "main": "filter/filter",
+  "types": "dist/filter.d.ts",
   "jsdelivr" : "filter/filter.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,6 +15,7 @@
   "keywords": [
     "filter",
     "javascript",
+    "typescript",
     "date"
   ],
   "author": "Peter Haddad",
