@@ -18,8 +18,7 @@ npm i date-filtersjs
 ```
 import as follows:
 ```js
-import { Filter } from 'date-filtersjs/src/filter';
-import { Dates }  from 'date-filtersjs/src/dates';
+import {Dates, DateFormat, Filter} from 'date-filtersjs';
 ```
 
 ## Usage
