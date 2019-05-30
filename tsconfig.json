@@ -7,8 +7,8 @@
     "outDir": "./dist",
   },
    "files": [
-    "dates.ts",
-    "filter.ts",
+    "src/dates.ts",
+    "src/filter.ts",
      ],
   "include": [
     "src/**/*",
