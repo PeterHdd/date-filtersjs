@@ -6,12 +6,4 @@
     "strict": true,
     "outDir": "./dist",
   },
-   "files": [
-    "src/dates.ts",
-    "src/filter.ts",
-     ],
-  "include": [
-    "src/**/*",
-    "**/*.ts"
-  ]
 }
