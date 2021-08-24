@@ -116,3 +116,13 @@ date.lastMonth();                                                       // retri
 
 date.incrementBy("40"));                                                // retrieve current day and last day according to the increment number provided
 date.decrementBy("40"));                                                // retrieve current day and last day according to the decrement number provided
+```
+
+### Created & Maintained By
+
+[Peter](https://github.com/peterhdd) ([@peterndev](https://www.twitter.com/peterndev))
+
+If you found this extension helpful and want to thank me, consider buying me a cup of :coffee:
+
+<a href="https://www.buymeacoffee.com/peterhaddad" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-red.png" alt="Buy Me A Coffee" height= "45px" width="174px"></a>
+
